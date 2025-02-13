@@ -2,7 +2,8 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.utils.html import escape
 from random import choice
-
+from django.views import View
+from django.shortcuts import render
 
 def funktionally(request):
     response = """<!DOCTYPE html>
@@ -180,6 +181,54 @@ def prettyurldata(request, thing):
     """
     return HttpResponse(response)
 
+class Icecream(View):
+    def get(self, request, flavor=''):
+        x={'flavor':flavor}
+        return render(request, 'viewsbasics/icecream.html', x)
+class bigtext(View):
+    def get(self, request, text=':3'):
+        x = {'text':text}
+        return render(request,'viewsbasics/bigtext.html', x)
+class color(View):
+    def get(self, request, color='000000'):
+        r = [color[0]]
+        r.append(color[1])
+        red = ''.join(r)
+        g = [color[2]]
+        g.append(color[3])
+        green = ''.join(g)
+        b = [color[4]]
+        b.append(color[5])
+        blue = ''.join(b)
+        x = {'red':red,'green':green,'blue':blue}
+        return render(request,'viewsbasics/color.html', x)
+
+class BMI(View):
+    def get(self, request, h='h', w='w'):
+        try:
+            h = float(h)
+            w = float(w)
+            BMI = w/(h**2)
+            x = {'BMI':BMI,'w':w, 'h':h}
+            return render(request,'viewsbasics/BMI.html',x)
+        except:
+            return render(request, 'viewsbasics/BMIfail.html')
+
+class RPC(View):
+    def get(self, request, p='p', r='r'):
+        try:
+            p = float(p)/100
+            r = float(r)
+            pf = 1 - p
+            prob = 100 - 100*(pf**r)
+
+            print(p," ",pf," ",r," ",prob)
+            if prob == 100:
+                prob = "basicly 100"
+            x = {'p':p*100,'r':r,'prob':prob}
+            return render(request, 'viewsbasics/RPC.html', x)
+        except:
+            return render(request, 'viewsbasics/RPCfail.html') 
 
 def bounce(request):
     places = [

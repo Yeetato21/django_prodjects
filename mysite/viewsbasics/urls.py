@@ -11,4 +11,14 @@ urlpatterns = [
     path('safer', views.safer),
     path('prettyurldata/<thing>', views.prettyurldata),
     path('bounce', views.bounce),
-]    
+    path('icecream',views.Icecream.as_view()),
+    path('icecream/<flavor>',views.Icecream.as_view()),  
+    path('bigtext/',views.bigtext.as_view()),
+    path('bigtext/<text>',views.bigtext.as_view()),
+    path('color/',views.color.as_view()), 
+    path('color/<color>',views.color.as_view()),
+    path('BMI/<h>/<w>',views.BMI.as_view()),
+    path('BMI/',views.BMI.as_view()),
+    path('RPC/<p>/<int:r>',views.RPC.as_view()),
+    path('RPC/',views.RPC.as_view()),
+]

@@ -207,11 +207,16 @@ class BMI(View):
     def get(self, request, h='h', w='w'):
         try:
             h = float(h)
+            print(h)
             w = float(w)
+            print(w)
             BMI = w/(h**2)
+            print(BMI)
             x = {'BMI':BMI,'w':w, 'h':h}
+            print(x)
             return render(request,'viewsbasics/BMI.html',x)
         except:
+            print('error')
             return render(request, 'viewsbasics/BMIfail.html')
 
 class RPC(View):

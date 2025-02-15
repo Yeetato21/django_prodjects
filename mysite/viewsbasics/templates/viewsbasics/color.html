@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang = 'en'>
-    <head>
-        <title>
-            color
-        </title>
-        <style>
-            body {backgound-color: {{ red }}{{ green }}{{ blue }};}
-        </style>
-    </head>
-    <body>
-        <p>Your hexcode is {{ red }}{{ green }}{{ blue }}</p>
-    </body>
-<html>
+{% extends 'base.html'%}
+{% block content %}
+    <p>Your hexcode is {{ red }}{{ green }}{{ blue }}</p>
+{% endblock %}

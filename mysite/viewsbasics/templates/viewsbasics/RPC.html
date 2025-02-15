@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang = 'en'>
-    <head>
-        <title>Repeated Probability Calculator</title>
-    </head>
-    <body>
-        <h1>With a chance of {{ p }}%</h1>
-        <h1>and {{ r }} repitition(s)</h1>
-        <h1>The chance of at least one success is {{ prob }}%</h1>
-    <body>
-<html>
+{% extends 'base.html' %}
+{% block content %}
+    <h1>With a chance of {{ p }}%</h1>
+    <h1>and {{ r }} repitition(s)</h1>
+    <h1>The chance of at least one success is {{ prob }}%</h1>
+{% endblock %}

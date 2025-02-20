@@ -2,10 +2,13 @@
 {% block content %}
 
 <h1>Sean's ToDo</h1>
+<main>
 {% if itemName %}
 <ul>
-    {% for item in todo_item_list %}
-    <li><a href="{% url 'todo:detail' item.id %}">{{ item.item_text }}</a></li>
+    {% for i in todo_item_list %}
+    <li><a href="{% url 'todo:detail' i.id %}">{{ i.text }}</a></li>
     {% endfor %}
+</ul>
 {% endif %}
+</main>
 {% endblock %}

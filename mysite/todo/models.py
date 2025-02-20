@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Item(models.Model):
-    itemText = models.CharField(max_length = 200)
+    text = models.CharField(max_length = 200)
     startDate = models.DateTimeField('start date')
     dueDate = models.DateTimeField('due date')
 

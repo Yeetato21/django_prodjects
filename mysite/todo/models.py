@@ -7,4 +7,4 @@ class Item(models.Model):
     dueDate = models.DateTimeField('due date')
 
     def __str__(self):
-        return self.itemText
+        return self.text

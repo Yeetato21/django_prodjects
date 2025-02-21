@@ -3,7 +3,7 @@
 
 <h1>Sean's ToDo</h1>
 <main>
-{% if itemName %}
+{% if todo_item_list %}
 <ul>
     {% for i in todo_item_list %}
     <li><a href="{% url 'todo:detail' i.id %}">{{ i.text }}</a></li>

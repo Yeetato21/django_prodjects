@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Culinary</h1>
+<main>
+{% if culinary_timeslot_list %}
+<ul>
+    {% for i in culinary_timeslot_list %}
+    <li><a href="{% url 'Culinary:detail' i.id %}">{{ i.t }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</main>
+{% endblock %}

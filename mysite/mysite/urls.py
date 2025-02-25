@@ -25,4 +25,5 @@ urlpatterns = [
     path('dtl/', include('dtl.urls')),
     path('polls/', include('polls.urls')),
     path('todo/', include('todo.urls')),
+    path('Culinary/', include('Culinary.urls')),
 ]

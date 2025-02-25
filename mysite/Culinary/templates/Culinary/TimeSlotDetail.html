@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Time Slot Detail</h1>
+<main>
+{% if timeslot_reser_list %}
+<ul>
+    {% for i in timeslot_reser_list %}
+    <li><a href="{% url 'timeslot:detail' i.id %}">{{ i.host_name }}</a></li>
+    {% endfor %}
+</ul>
+{% endif %}
+</main>
+{% endblock %}

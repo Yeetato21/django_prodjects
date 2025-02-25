@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'Culinary.apps.CulinaryConfig',
     'todo.apps.TodoConfig',
     'polls.apps.PollsConfig',
     'viewsbasics.apps.ViewsbasicsConfig',

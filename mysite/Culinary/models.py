@@ -5,7 +5,7 @@ import datetime
 
 
 class TimeSlot(models.Model):
-    t = models.DateTimeField("time reserved")
+    t = models.DateTimeField()
     max_people = models.IntegerField(default = 0) 
     
     def __str__(self):

@@ -7,15 +7,13 @@ from .models import TimeSlot, Reser
 
 class Index(generic.ListView):
     model = TimeSlot
-    template_name = 'Culinary/index.html'
-    context_object_name  = 'Culinary_timeslot_list'
+    template_name = "Culinary/index.html"
 
-class TimeSlotDetail(generic.ListView):
+class TimeSlotDetail(generic.DetailView):
     model = TimeSlot
-    template_name = 'Culinary/timeslotdetail.html'
-    context_object_name = 'timeslot_Reser_list'
+    template_name = "Culinary/TimeSlotDetail.html"
 
 class ReserDetail(generic.DetailView):
     model = Reser
-    template_name = 'Culinary/reser.html'
+    template_name = "Culinary/ReserDetail.html"
     

@@ -22,3 +22,7 @@ main {
   grid-template-columns: 48vw 48vw;
   grid-template-rows: auto;
 }
+button {
+    background-color: Gold;
+    border-color: Black;
+}

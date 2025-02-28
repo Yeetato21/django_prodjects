@@ -6,9 +6,13 @@
 {% if todo_item_list %}
 <ul>
     {% for i in todo_item_list %}
-    <li><a href="{% url 'todo:detail' i.id %}">{{ i.text }}</a></li>
+    <li>
+        <a href="{% url 'todo:detail' i.id %}">{{ i.text }}</a>
+        <a href="{% url 'todo:delete' i.id %}" class='button'>Delete</a>
+    </li>
     {% endfor %}
 </ul>
 {% endif %}
+<a href="{% url 'todo:add' %}">New Item</a>
 </main>
 {% endblock %}

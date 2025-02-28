@@ -1,5 +1,6 @@
 body {
     margin: 4vw;
+    background-color: PaleGreen;
 }
 main {
     padding: 4vw;
@@ -14,7 +15,7 @@ footer {
 a, a:visited {
     text-decoration: none;
     font-weight: bold;
-    color: #C92; 
+    color: DarkGreen; 
 }
 main {
   display: grid;

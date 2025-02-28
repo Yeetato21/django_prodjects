@@ -6,7 +6,7 @@
 {% if timeslot.t %}
 <ul>
     {% for i in timeslot.reser_set.all %}
-     <li><a href="{% url 'Culinary:reser_detail' i.id %}"> {{ i.t }}</a></li>
+     <li><a href="{% url 'Culinary:reser_detail' i.id %}"> {{ i.host_name }}</a></li>
     {% endfor %}
 </ul>
 {% endif %}

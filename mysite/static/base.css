@@ -1,6 +1,6 @@
 body {
     margin: 4vw;
-    background-color: PaleGreen;
+    background-color: Black;
 }
 main {
     padding: 4vw;
@@ -8,19 +8,26 @@ main {
 }
 h1, footer {
     text-align: center;
+    color: Lime;
 }
 footer {
     margin-top: 1vw;
 }
+h2 {
+    color: Lime;
+}
+
 a, a:visited {
     text-decoration: none;
     font-weight: bold;
-    color: DarkGreen;
-    border: 2px solid White; 
-    border-radius: 8px;
+    color: Lime;
+    border: 1px solid Black; 
+    border-radius: 4px;
 }
 a:hover {
-    background-color: Gold;
+    background-color: Lime;
+    color: Black;
+    border: 1px solid Lime;
 }
 main {
   display: grid;

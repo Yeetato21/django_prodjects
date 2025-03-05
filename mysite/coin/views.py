@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from django.views import genaric
+from django.views import generic
 
 from .models import CoinType, Coin
 
 # Create your views here.
 
-class Index(genaric.ListView):
+class Index(generic.ListView):
     model = CoinType
     template_name = "coin/index.html"
 

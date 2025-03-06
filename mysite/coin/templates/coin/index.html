@@ -8,4 +8,5 @@
 <a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a> <br />
 {% endfor %}
 </p>
+<a href="{% url 'coin:add_coin_type' %}">New Coin Type</a>
 {% endblock %}

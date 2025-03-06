@@ -16,7 +16,9 @@ footer {
 h2 {
     color: Lime;
 }
-
+p {
+    color: Lime;
+}
 a, a:visited {
     text-decoration: none;
     font-weight: bold;

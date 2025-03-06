@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>{{ cointype }}</h2>
+<main>
+    {% for i in cointype.coin_set.all %}
+        <p>
+            <a href="{% url 'coin:coin_detail' i.id %}">{{ i.color }} {{ i.holo }} {{ i.name }}</a>
+        </p>
+        <br />
+    {% endfor %}
+    <a href="{% url 'coin:add_coin' %}">New {{ cointype.name }}</a>
+    <a href="{% url 'coin:delete_coin' %}">New {{ cointype.name }}</a>
+</main>
+
+{% endblock %}

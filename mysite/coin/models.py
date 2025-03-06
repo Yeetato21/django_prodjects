@@ -23,4 +23,4 @@ class Coin(models.Model):
     holo = models.CharField(max_length = 32, default = "None")
 
     def __str__(self):
-        return self.name
+        return str(self.name)

@@ -10,5 +10,6 @@ urlpatterns = [
     path('addcointype/',views.CreateCoinType.as_view(), name = 'add_coin_type'),
     path('deletecointype/<int:pk>',views.DeleteCoinType.as_view(), name = 'delete_coin_type'),
     path('addcoin/',views.CreateCoin.as_view(), name = 'add_coin'),
-    path('deletecoin/',views.DeleteCoin.as_view(), name = 'delete_coin'),
+    path('coindeleteview/<int:pk>',views.CoinDeleteView.as_view(), name = 'coin_delete_view'),
+    path('deletecoin/<int:pk>',views.DeleteCoin.as_view(), name = 'delete_coin'),
 ]

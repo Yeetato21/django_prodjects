@@ -37,10 +37,12 @@ main {
   grid-template-rows: auto;
 }
 .button {
-    background-color: PaleGreen;
-    border:2px solid Black;
-    border-radius: 8px;
+    color: Black;
+    background-color: Lime;
+    border:1px solid Black;
+    border-radius: 4px;
 }
 .button:hover {
-    background-color: Gold;
+    background-color: Black;
+    color: Lime;  
 }

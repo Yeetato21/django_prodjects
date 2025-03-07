@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2>Delete Some Coins</h2>
+<main>
+<ul>
+    {% for i in cointype.coin_set.all %}
+    <li>
+        <a href="{% url 'coin:coin_detail' i.id %}">{{ i.color }}{{ i.holo }}{{ i.name }}</a>
+        <a href="{% url 'coin:delete_coin' i.id %}" class='button'>Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+</main>
+{% endblock %}

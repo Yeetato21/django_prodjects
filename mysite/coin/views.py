@@ -32,7 +32,10 @@ class CreateCoin(generic.edit.CreateView):
     fields = '__all__'
     success_url = reverse_lazy('coin:index')
 
-class DeleteCoin(generic.edit.DeleteView):
+class CoinDeleteView(generic.DetailView): # list of coins with added delete button
+    model = CoinType
+    template_name = "coin/CoinDeleteView.html"
+
+class DeleteCoin(generic.edit.DeleteView): # detletes the coin
     model = Coin
-    fields = '__all__'
     success_url = reverse_lazy('coin:index')

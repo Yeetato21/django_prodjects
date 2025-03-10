@@ -10,22 +10,30 @@ class Index(generic.ListView):
     model = CoinType
     template_name = "coin/index.html"
 
+### Coin Type Views ###
+
 class CoinTypeDetail(generic.DetailView):
     model = CoinType
     template_name = "coin/CoinTypeDetail.html"
-
-class CoinDetail(generic.DetailView):
-    model = Coin
-    template_name = "coin/CoinDetail.html"
 
 class CreateCoinType(generic.edit.CreateView):
     model = CoinType
     fields = '__all__'
     success_url = reverse_lazy('coin:index')
 
+class CoinTypeDeleteView(generic.DetailView):
+    model = CoinType
+    template_name = "coin/CoinTypeDeleteView"
+
 class DeleteCoinType(generic.edit.DeleteView):
     model = CoinType
     success_url = reverse_lazy('coin:index')
+
+### Coin Views ###
+
+class CoinDetail(generic.DetailView):
+    model = Coin
+    template_name = "coin/CoinDetail.html"
 
 class CreateCoin(generic.edit.CreateView):
     model = Coin

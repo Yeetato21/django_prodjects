@@ -2,13 +2,23 @@ from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse, reverse_lazy
 
-from .models import CoinType, Coin
+from .models import CoinType, Coin, Player, Collection
 
 # Create your views here.
 
 class Index(generic.ListView):
     model = CoinType
     template_name = "coin/index.html"
+
+### Player Views ###
+
+class PlayerList(generic.ListView): # list of players
+    model = Player
+    template_name = "coin/PlayerList.html"
+
+class PlayerDetail(generic.DetailView): # list of player's coins
+    model = Player
+    template_name = "coin/PlayerDetail.html"
 
 ### Coin Type Views ###
 
@@ -21,9 +31,9 @@ class CreateCoinType(generic.edit.CreateView):
     fields = '__all__'
     success_url = reverse_lazy('coin:index')
 
-class CoinTypeDeleteView(generic.DetailView):
+class CoinTypeDeleteView(generic.ListView):
     model = CoinType
-    template_name = "coin/CoinTypeDeleteView"
+    template_name = "coin/CoinTypeDeleteView.html"
 
 class DeleteCoinType(generic.edit.DeleteView):
     model = CoinType
@@ -35,10 +45,15 @@ class CoinDetail(generic.DetailView):
     model = Coin
     template_name = "coin/CoinDetail.html"
 
-class CreateCoin(generic.edit.CreateView):
-    model = Coin
-    fields = '__all__'
-    success_url = reverse_lazy('coin:index')
+#class CreateCoin(request, cointype_id):
+    # get coin type name and value
+        
+    # pick color and increase value
+
+    # pick holo and increase value
+
+    # return by adding new coin to table and redirect to index
+    #return render(request, 'coin/makenewcoin.html')
 
 class CoinDeleteView(generic.DetailView): # list of coins with added delete button
     model = CoinType

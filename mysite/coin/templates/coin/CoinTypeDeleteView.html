@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Coin App</h2>
+<p>
+{% for i in cointype_list %}
+<a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a> 
+<a href="{% url 'coin:delete_coin_type' i.id %}" class='button'>Delete</a> <br />
+{% endfor %}
+</p>
+
+{% endblock %}
+

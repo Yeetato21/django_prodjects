@@ -5,6 +5,16 @@
     <h2>{{ coin.color }} {{ coin.holo }} {{ coin.name }}</h2>
     <br/>
     <p>This coin is worth {{ coin.value }} credits</p>
+    <br/>
+
+    <h2>Players with this coin</h2>
+    <br/>
+    {% for i in coin.player_set.all %}
+        <p>
+            <a href="{% url 'coin:player_detail' i.id %}">{{ i.name }}</a>
+        </p>
+        <br />
+    {% endfor %}
 </main>
 
 {% endblock %}

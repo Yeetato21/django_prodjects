@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse, reverse_lazy
 
+import random
+
 from .models import CoinType, Coin, Player, Collection
 
 # Create your views here.
@@ -45,15 +47,19 @@ class CoinDetail(generic.DetailView):
     model = Coin
     template_name = "coin/CoinDetail.html"
 
-#class CreateCoin(request, cointype_id):
-    # get coin type name and value
-        
+
+def CreateCoin(self, request, pk):
+# get coin type name and value
+    p = get_object_or_404(Player, id = pk)
+    cointypes = list(CoinType.objects.get())
+    for i in cointypes:
+        print(i)
     # pick color and increase value
 
     # pick holo and increase value
 
     # return by adding new coin to table and redirect to index
-    #return render(request, 'coin/makenewcoin.html')
+    
 
 class CoinDeleteView(generic.DetailView): # list of coins with added delete button
     model = CoinType

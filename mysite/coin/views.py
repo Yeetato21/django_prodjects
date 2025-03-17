@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views import generic
 from django.urls import reverse, reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 import random
 
@@ -33,7 +34,7 @@ class CreateCoinType(generic.edit.CreateView):
     fields = '__all__'
     success_url = reverse_lazy('coin:index')
 
-class CoinTypeDeleteView(generic.ListView):
+class CoinTypeDeleteView(LoginRequiredMixin, generic.ListView):
     model = CoinType
     template_name = "coin/CoinTypeDeleteView.html"
 

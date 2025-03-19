@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>Welcome to Coin</h1>
+
+<a href = "{% url 'coin:player_list' %}">Player List</a>
+<a href = "{% url 'coin:index' %}">Coin Type List</a>
+
+{% endblock %}
+

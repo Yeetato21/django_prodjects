@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views import generic
+from django.views import generic, View
 from django.urls import reverse, reverse_lazy
 from django.contrib.auth.mixins import LoginRequiredMixin
 
@@ -8,6 +8,11 @@ import random
 from .models import CoinType, Coin, Player, Collection
 
 # Create your views here.
+class Home(View):
+    def get(self, request):
+        return render(request, "coin/home.html")
+
+
 
 class Index(generic.ListView):
     model = CoinType
@@ -20,7 +25,7 @@ class PlayerList(generic.ListView): # list of players
     template_name = "coin/PlayerList.html"
 
 class PlayerDetail(generic.DetailView): # list of player's coins
-    model = Player
+    model = django.auth.user
     template_name = "coin/PlayerDetail.html"
 
 ### Coin Type Views ###

@@ -1,13 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.conf import settings
 
 # Create your models here.
 
-class Player(models.Model):
-    name = models.CharField(max_length = 16)
-    coins = models.ManyToManyField('Coin', through = 'Collection') 
-
-    def __str__(self):
-        return str(self.name)
+#class Player(models.Model):
+#    name = models.CharField(max_length = 16)
+#    coins = models.ManyToManyField('Coin', through = 'Collection') 
+#
+#    def __str__(self):
+#        return str(self.name)
 
 class CoinType(models.Model):
     name = models.CharField(max_length = 32)
@@ -23,11 +25,11 @@ class Coin(models.Model):
     color = models.CharField(max_length = 16, default = "Grey")
     holo = models.CharField(max_length = 32, default = "None")
     num = models.IntegerField(default = 0)
-    owners = models.ManyToManyField('Player', through = 'Collection')
+    owners = models.ManyToManyField(settings.AUTH_USER_MODEL)
 
     def __str__(self):
-        return str(self.name)
+        return str(self.cointype.name)
 
-class Collection(models.Model):
-    coin = models.ForeignKey(Coin, on_delete = models.CASCADE)
-    player = models.ForeignKey(Player, on_delete = models.CASCADE) 
+#class Collection(models.Model):
+#    coin = models.ForeignKey(Coin, on_delete = models.CASCADE)
+#    player = models.ForeignKey(Player, on_delete = models.CASCADE) 

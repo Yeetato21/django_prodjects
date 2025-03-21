@@ -1,15 +1,18 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h2>{{ player }}</h2>
+<h2>{{ user.username }}</h2>
 <main>
-    {% for i in player.coin_set.all %}
+    {% for i in user.coin_set.all %}
         <p>
-            <a href="{% url 'coin:coin_detail' i.id %}">{{ i.color }} {{ i.holo }} {{ i.name }}</a>
+            <a href="{% url 'coin:coin_detail' i.id %}">{{ i.color }} {{ i.holo }} {{ i.cointype.name }}</a>
         </p>
         <br />
     {% endfor %}
-    {% comment %}<a href="{% url 'coin:add_coin' %}">New {{ cointype.name }}</a> {% endcomment %}
+    <form method="post" action="{% url 'coin:add_coin' user.id  %}"> 
+        {% csrf_token %}
+        <button type = "submit">New coin</button>
+    </form>
 </main>
 
 {% endblock %}

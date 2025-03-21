@@ -2,10 +2,10 @@
 
 {% block content %}
 
-<h2>Coin App</h2>
+<h2>Coin App Player List</h2>
  <p>
-{% for i in player_list %}
-<a href = "{% url 'coin:player_detail' i.id %}">{{i.name}}</a> <br />
+{% for i in user_list %}
+<a href = "{% url 'coin:player_detail' i.id %}">{{i.username}}</a> <br />
 {% endfor %}
 </p>
 {% endblock %}

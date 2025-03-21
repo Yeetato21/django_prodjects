@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import generic, View
-from django.urls import reverse, reverse_lazy
+from django.urls import reverse, reverse_lazy 
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 
 import random
 
-from .models import CoinType, Coin, Player, Collection
+from .models import CoinType, Coin 
 
 # Create your views here.
 class Home(View):
@@ -21,11 +22,11 @@ class Index(generic.ListView):
 ### Player Views ###
 
 class PlayerList(generic.ListView): # list of players
-    model = Player
+    model = User
     template_name = "coin/PlayerList.html"
 
 class PlayerDetail(generic.DetailView): # list of player's coins
-    model = django.auth.user
+    model = User
     template_name = "coin/PlayerDetail.html"
 
 ### Coin Type Views ###
@@ -54,18 +55,23 @@ class CoinDetail(generic.DetailView):
     template_name = "coin/CoinDetail.html"
 
 
-def CreateCoin(self, request, pk):
-# get coin type name and value
-    p = get_object_or_404(Player, id = pk)
-    cointypes = list(CoinType.objects.get())
-    for i in cointypes:
-        print(i)
+class CreateCoin(LoginRequiredMixin,View):
+
+    def GET(self, request, pk):
+        return redirect(reverse('coin:home'))
+
+    def POST(self, request, pk):
+
+    # get coin type name and value
+        u = get_object_or_404(User, id = pk)
+        #c = Coin(cointype=Bolt) 
     # pick color and increase value
 
     # pick holo and increase value
 
-    # return by adding new coin to table and redirect to index
-    
+    # return by adding new coin to table and redirect 
+        return redirect(reverse_lazy('coin:home'))
+
 
 class CoinDeleteView(generic.DetailView): # list of coins with added delete button
     model = CoinType

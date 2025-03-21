@@ -14,7 +14,7 @@ urlpatterns = [
     path('cointypedeleteview/',views.CoinTypeDeleteView.as_view(), name = 'coin_type_delete_view'),
     path('deletecointype/<int:pk>',views.DeleteCoinType.as_view(), name = 'delete_coin_type'),
 
-    # path('addcoin/',views.CreateCoin.as_view(), name = 'add_coin'),
+    path('player/<int:pk>/addcoin/',views.CreateCoin.as_view(), name = 'add_coin'),
     path('coindeleteview/<int:pk>',views.CoinDeleteView.as_view(), name = 'coin_delete_view'),
     path('deletecoin/<int:pk>',views.DeleteCoin.as_view(), name = 'delete_coin'),
 

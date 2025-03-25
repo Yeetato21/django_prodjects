@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic, View
 from django.urls import reverse, reverse_lazy 
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -57,20 +57,48 @@ class CoinDetail(generic.DetailView):
 
 class CreateCoin(LoginRequiredMixin,View):
 
-    def GET(self, request, pk):
+    def get(self, request, pk):
         return redirect(reverse('coin:home'))
 
-    def POST(self, request, pk):
+    def post(self, request, pk):
+        ctids = [] 
+        for i in CoinType.objects.all():
+            ctids.append(i)
+        CurCT = random.choice(ctids)
+        CurVal = CurCT.basevalue
+        
+        coin = Coin()
+        coin.cointype = CurCT
+        coin.save()
+        coin.owners.add(self.request.user)
 
-    # get coin type name and value
-        u = get_object_or_404(User, id = pk)
-        #c = Coin(cointype=Bolt) 
+
+        RCN = random.randint(1,100)
+        if RCN <= 60:
+            coin.color = "Grey"
+        elif RCN >= 61 and RCN <= 67:
+            coin.color = "Violet"
+        elif RCN == 68:
+            coin.color = "Indigo"
+        elif RCN >= 69 and RCN <= 75:
+            coin.color = "Blue"
+        elif RCN >= 76 and RCN <= 81:
+            coin.color = "Green"
+        elif RCN >= 82 and RCN <= 88:
+            coin.color = "Yellow"
+        elif RCN >= 89 and RCN <= 95:
+            coin.color = "Orange"
+        elif RCN >= 96 and RCN <= 100:
+            coin.color = "Red"
+
+
+        coin.save()
     # pick color and increase value
 
     # pick holo and increase value
 
     # return by adding new coin to table and redirect 
-        return redirect(reverse_lazy('coin:home'))
+        return redirect(reverse_lazy('coin:index'))
 
 
 class CoinDeleteView(generic.DetailView): # list of coins with added delete button

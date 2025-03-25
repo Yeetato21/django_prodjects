@@ -23,7 +23,7 @@ class Coin(models.Model):
     cointype = models.ForeignKey(CoinType, on_delete = models.CASCADE) 
     value = models.IntegerField(default = 1)
     color = models.CharField(max_length = 16, default = "Grey")
-    holo = models.CharField(max_length = 32, default = "None")
+    holo = models.CharField(max_length = 32, default = "")
     num = models.IntegerField(default = 0)
     owners = models.ManyToManyField(settings.AUTH_USER_MODEL)
 

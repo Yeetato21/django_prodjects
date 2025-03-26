@@ -2,37 +2,17 @@
 
 {% block content %}
 
-{% if user.is_authenticated %}
 
-<p>Authenticated as
-<pre>
-Name: {{ user.get_full_name }}
-Email: {{ user.email }}
-Id: {{ user.id }}
-</pre>
-</p>
 
 <h2>Coin App</h2>
 <p>
 
-<p>You can delete becasue your logged in</p>
-
 {% for i in cointype_list %}
-<a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a> 
+<a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a>
+{% comment %}<a href = "{% url 'coin:edit_coin_type' i.id %}">{{ i.name }}</a>{% endcomment %}
 <a href="{% url 'coin:delete_coin_type' i.id %}" class='button'>Delete</a> <br />
 {% endfor %}
 </p>
-{% else %}
-
-<p>You cant delete because your not logged in</p>
-
-{% for i in cointype_list %}
-<a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a> 
-Delete
-{% endfor %}
-</p>
-
-{% endif %}
 
 {% endblock %}
 

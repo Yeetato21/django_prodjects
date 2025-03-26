@@ -8,6 +8,8 @@
 <a href = "{% url 'coin:coin_type_detail' i.id %}">{{i.name}}</a> <br />
 {% endfor %}
 </p>
+{% if user.is_superuser %}
 <a href="{% url 'coin:add_coin_type' %}">New Coin Type</a>
 <a href="{% url 'coin:coin_type_delete_view' %}">Delete Coin Type</a>
+{% endif %}
 {% endblock %}

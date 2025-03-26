@@ -9,8 +9,6 @@
         </p>
         <br />
     {% endfor %}
-    <a href="{% url 'coin:add_coin' %}">New {{ cointype.name }}</a>
-    <a href="{% url 'coin:coin_delete_view' cointype.id %}">Delete Coins</a>
-</main>
+    </main>
 
 {% endblock %}

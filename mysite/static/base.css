@@ -25,11 +25,12 @@ a, a:visited {
     color: Black;
     border: 1px solid Lime; 
     border-radius: 4px;
+    background-color: Lime;
 }
 a:hover {
     background-color: Black;
     color: Lime;
-    border: 1px solid Black;
+    
 }
 main {
   display: grid;

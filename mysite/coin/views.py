@@ -91,6 +91,21 @@ class CreateCoin(LoginRequiredMixin,View):
         elif RCN >= 96 and RCN <= 100:
             coin.color = "Red"
 
+        RHN = random.randint(1,10000)
+        if RHN <= 7999:
+            coin.holo = ""
+        elif RHN >= 8000 and RHN <= 8399:
+            coin.holo = "Cracked Ice"
+        elif RHN >= 8400 and RHN <= 8799:
+            coin.holo = "Confetti"
+        elif RHN >= 8800 and RHN <= 9199:
+            coin.holo = "Moon"
+        elif RHN >= 9200 and RHN <= 9599:
+            coin.holo = "Sun"
+        elif RHN >= 9600 and RHN <= 9999:
+            coin.holo = "Radial"
+        elif RHN == 10000:
+            coin.holo = "Inverse"
 
         coin.save()
     # pick color and increase value

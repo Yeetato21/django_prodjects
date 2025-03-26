@@ -2,7 +2,18 @@
 
 {% block content %}
 
-<h1>Welcome to Coin</h1>
+{% if user.is_authenticated %}
+
+<h2>Welcome {{ user.username }}</h2>
+<p>Whats today's plan?</p>
+
+{% else %}
+
+<h2>Welcome to Coin</h2>
+<p>Are you new here? You could sign up!</p>
+<p>Although, you might alredy have an account. In that case you should log in.</p>
+
+{% endif %}
 
 <a href = "{% url 'coin:player_list' %}">Player List</a>
 <a href = "{% url 'coin:index' %}">Coin Type List</a>

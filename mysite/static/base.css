@@ -22,14 +22,14 @@ p {
 a, a:visited {
     text-decoration: none;
     font-weight: bold;
-    color: Lime;
-    border: 1px solid Black; 
+    color: Black;
+    border: 1px solid Lime; 
     border-radius: 4px;
 }
 a:hover {
-    background-color: Lime;
-    color: Black;
-    border: 1px solid Lime;
+    background-color: Black;
+    color: Lime;
+    border: 1px solid Black;
 }
 main {
   display: grid;
@@ -43,6 +43,6 @@ main {
     border-radius: 4px;
 }
 .button:hover {
-    background-color: Black;
-    color: Lime;  
+    background-color: Lime;
+    color: Black;  
 }

@@ -12,7 +12,7 @@
         <p>
         Coin Game 
         {% if user.is_authenticated %}
-        <a href = "{% url 'logout' %}?next={{ request.path }}">Logout</a> 
+        <a href = "{% url 'logout' %}?next={% url 'coin:home' %}">Logout</a> 
         <a href = "{% url 'coin:player_detail' user.id %}">Profile</a>
         {% else %}
         <a href = "{% url 'login' %}?next={{ request.path }}">Login</a> 

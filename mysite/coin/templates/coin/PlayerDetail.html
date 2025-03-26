@@ -9,10 +9,12 @@
         </p>
         <br />
     {% endfor %}
+    {% if request.user == user %}
     <form method="post" action="{% url 'coin:add_coin' user.id  %}"> 
         {% csrf_token %}
         <button type = "submit">New coin</button>
     </form>
+    {% endif %}
 </main>
 
 {% endblock %}

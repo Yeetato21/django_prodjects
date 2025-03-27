@@ -72,40 +72,60 @@ class CreateCoin(LoginRequiredMixin,View):
         coin.save()
         coin.owners.add(self.request.user)
 
-
         RCN = random.randint(1,100)
         if RCN <= 60:
             coin.color = "Grey"
+            c = 60
         elif RCN >= 61 and RCN <= 67:
             coin.color = "Violet"
+            c = 7
         elif RCN == 68:
             coin.color = "Indigo"
+            c=1
         elif RCN >= 69 and RCN <= 75:
             coin.color = "Blue"
+            c=7
         elif RCN >= 76 and RCN <= 81:
             coin.color = "Green"
+            c=6
         elif RCN >= 82 and RCN <= 88:
             coin.color = "Yellow"
+            c=7
         elif RCN >= 89 and RCN <= 95:
             coin.color = "Orange"
+            c=7
         elif RCN >= 96 and RCN <= 100:
             coin.color = "Red"
+            c=5
+
+        CurVal = CurVal + 60 - c
 
         RHN = random.randint(1,10000)
         if RHN <= 7999:
             coin.holo = ""
+            h=79.99
         elif RHN >= 8000 and RHN <= 8399:
             coin.holo = "Cracked Ice"
+            h=4
         elif RHN >= 8400 and RHN <= 8799:
             coin.holo = "Confetti"
+            h=4
         elif RHN >= 8800 and RHN <= 9199:
             coin.holo = "Moon"
+            h=4
         elif RHN >= 9200 and RHN <= 9599:
             coin.holo = "Sun"
+            h=4
         elif RHN >= 9600 and RHN <= 9999:
             coin.holo = "Radial"
+            h=4
         elif RHN == 10000:
             coin.holo = "Inverse"
+            h=0.01
+        
+        CurVal = CurVal + 80 - h
+
+        coin.value = CurVal
 
         coin.save()
     # pick color and increase value
@@ -113,7 +133,7 @@ class CreateCoin(LoginRequiredMixin,View):
     # pick holo and increase value
 
     # return by adding new coin to table and redirect 
-        return redirect(reverse_lazy('coin:index'))
+        return redirect(reverse('coin:player_detail',args = [pk]))
 
 
 class CoinDeleteView(generic.DetailView): # list of coins with added delete button
